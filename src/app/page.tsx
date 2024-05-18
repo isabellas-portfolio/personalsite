@@ -1,113 +1,116 @@
 import Image from "next/image";
+import Placeholder from "./components/placeholder";
+import Link from "next/link";
+import profilepic from "/public/profile.png"
+import scoutpic from "/public/homebuyerguide (1).png"
+import digitalwpic from "/public/digitalwriting.png"
+
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <div id="first page start"className="ml-[12rem] flex items-stretch gap-5 font-serif font-bold text-3xl lg:text-7xl">
+      <div className="text-[50] animate-bounce">✼❣❋</div>
+        <div className="pl-2"> Hi, I'm</div>
+        <div className="text-pink-500">Isabella Iype!</div>
+        <div className="text-[50] animate-bounce">✼❣❋</div>
+
+      </div>
+      <div className="pl-4 gap-2 text-left lg:grid grid-cols-2">
+        <div id="first column of grid" className="font-serif text-xl space-y-5 ml-[11.5rem] pt-10"> 
+          <h1>Welcome to my Personal Website! </h1> 
+          <p className="max-w-md">Pursuing a degree in Computer Science and English with a minor in Immersive Media</p>
+          <p className="max-w-[26rem]"> <span className="font-bold" >Motivated </span> 
+            by technology and the humanities <span className="font-bold">to find tech solutions </span> 
+            that combine the analytical power of <span className="font-bold">Computer Science </span> 
+            with the narratives of  <span className="font-bold">Language and Literature</span>. </p>
+            <div id="Current positions">
+              <h1 className="pl-2"> Currently:</h1>
+              <div className="font-serif text-xl max-w-[230] pl-2">
+               <p> <span className="animate-pulse">&#127800;</span> IT Engineer @ <span> <a target="_blank" rel="noopener noreferrer" 
+               className="text-pink-500 underline underline-offset-6" 
+               href="https://www.wayfair.com/gateway.php?&refid=GX281264597885.
+               Wayfair~b&position=&network=g&pcrid=281264597885&device=c&targetid=
+               kwd-3598608535&channel=GoogleBrand&gad_source=1&gbraid=
+               0AAAAAD9ISC7kLJvWRXDDVBjYJigzZaqcx&gclid=CjwKCAjwo
+               6GyBhBwEiwAzQTmc0isXH3SnABbw8GMXeSS06sS05bP387tfKjrGsFOzDGySSpDww0JwhoCnGUQAvD_BwE"
+               >Wayfair</a></span> </p> 
+              <p> <span className="animate-pulse">&#127800;</span> Project Lead @ <span> <a target="_blank" rel="noopener noreferrer" 
+               className="text-pink-500 underline underline-offset-6" 
+               href="https://scout.camd.northeastern.edu"
+               >Scout</a></span> </p>
+              <p> <span className="animate-pulse">&#127800;</span> Small Group Leader & Social Media Manager @ <span> <a target="_blank" rel="noopener noreferrer" 
+               className="text-pink-500 underline underline-offset-6" 
+               href="https://www.instagram.com/neusaiv/"
+               >SAIV</a></span> </p>
+              </div>
+            </div>
+            <div id="button" className="">
+              <Link href="/aboutme" className="bg-neutral-800 hover:bg-pink-500 text-white font-bold py-1 px-2 border-b-2 border-neutral-950 hover:border-pink-700 rounded lg:py-2 px-4 border-b-4">
+                More about me!
+              </Link>
+            </div>
         </div>
-      </div>
+      
+        <div id="second column of grid">
+                    <Image className="rounded-lg ml-[8rem] mt-8" src={profilepic} width={400} height={400} alt="github icon"></Image>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+                
+                    </div>
+        </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div className="font-serif text-center text-md mt-[5rem]"> <Link href={"#second_page_start"}>&#10597; my projects &#10597;</Link>
+</div>
+        <div 
+            id="second_page_start"
+            className="mt-[12rem] pt-10 h-screen flex flex-col font-serif text-3xl text-center font-bold lg:text-5xl">
+              <h1 className="place-self-center">Projects: In and Out of the Classroom</h1>
+              <div id="create_two_columns" className="grid grid-cols-2 gap-2 ml-10 mt-10">
+                <div id="second_page_column1" className="space-y-[6rem] ml-14">
+                <Image className="rounded-lg ml-[8rem] mt-8" src={scoutpic} width={400} height={400} alt="github icon"></Image>
+                <Image className="rounded-lg ml-[8rem] mt-8" src={digitalwpic} width={400} height={400} alt="github icon"></Image>
+                </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+                <div id="second_page_column2" className="font-serif mr-40 space-y-10">
+                    <div>
+                    <h1 className="text-base text-nowrap font-bold lg: text-xl">Scout Labs 2024</h1>
+                      <p className="text-sm text-pink-500 font-bold font-serif lg:text-lg"> User Research, Academic Writing, User Interviewing</p>
+                      <p className="text-base font-light"> Scout Labs is an interdisciplinary team that uses a human-centered design thinking process 
+                        to research pressing civic issues and prototype creative solutions. 
+                        As a part of Scout Labs as a Strategist + Journalist this semester, 
+                        I aided in the research and narrative building for a website for first time homebuyers, 
+                        partnered with City of Boston's Home Center and Housing Innovation Lab.  </p>
+                        <Link href="/experience" className="text-base bg-neutral-800 hover:bg-pink-500 text-white font-bold py-2 px-4 border-b-4 border-neutral-950 hover:border-pink-700 rounded">
+                        View Full Description
+                        </Link>
+                      </div>  
+                        
+                        <div>
+                        <h1 className="text-xl font-bold">Digital Writing Portfolio</h1>
+                      <p className="text-lg text-pink-500 font-bold font-serif"> Website Development, Website Design, UI/UX</p>
+                      <p className="text-base font-light"> Final project for ENGL 2730- Digital Writing with 
+                      Professor Lawrence Evalyn. Received an A on the final, and in the class! 
+                      Had to develop and design the website from scratch using HTML/CSS and relevant technologies 
+                      such as Github and Brackets.   </p>
+                      <Link href="/experience" className="text-base bg-neutral-800 hover:bg-pink-500 text-white font-bold py-2 px-4 border-b-4 border-neutral-950 hover:border-pink-700 rounded">
+                        View Full Description
+                        </Link>
+                        </div>
+                      
+                       
+                </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+             
+              </div>
+            
+        </div>
+        <div className="animate-bounce text-center pb-20"> <Link href="/experience" className="text-base bg-neutral-800 hover:bg-pink-500 text-white font-bold py-2 px-4 border-b-4 border-neutral-950 hover:border-pink-700 rounded">
+                        Explore More Projects!
+                        </Link> </div>
+        <div className="font-serif text-center"> <Link href={"#first page start"}>&#10595; back to top &#10595;</Link>
+</div>
     </main>
+    
   );
 }
