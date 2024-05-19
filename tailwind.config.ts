@@ -10,6 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         "bella-pink" : "#ffd6f5",
+        "my-pink" : "#de5fbe",
+        "my-gray" : "#555759",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
