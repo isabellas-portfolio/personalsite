@@ -10,11 +10,11 @@ import digitalwpic from "/public/digitalwriting.png"
 export default function Home() {
   return (
     <main>
-      <div id="first page start"className="mt-10 ml-[12rem] flex items-stretch gap-5 font-serif font-bold text-3xl lg:text-7xl">
-      <div className="text-my-gray text-[50] animate-bounce">✼❣❋</div>
+      <div id="first page start"className="mt-10 ml-[12rem] flex items-stretch gap-5 font-serif text-3xl lg:text-7xl">
+      <div className="text-my-gray text-[50] animate-bounce font-light">✼❣❋</div>
         <div className="pl-2 text-my-gray"> Hi, I'm</div>
         <div className="text-my-pink">Isabella Iype!</div>
-        <div className="text-my-gray text-[50] animate-bounce">❋❣✼</div>
+        <div className="text-my-gray text-[50] animate-bounce font-light">❋❣✼</div>
 
       </div>
       <div className="pl-4 gap-2 text-left lg:grid grid-cols-2">
@@ -52,7 +52,7 @@ export default function Home() {
               </div>
             </div>
             <div id="button" className="hover:scale-105">
-              <Link href="/aboutme" className="bg-my-gray hover:bg-pink-500 text-white font-bold py-1 px-2 border-b-2 border-neutral-800 hover:border-pink-700 rounded lg:py-2 px-4 border-b-4">
+              <Link href="/aboutme" className="bg-my-gray hover:bg-my-pink text-white font-bold py-1 px-2 border-b-2 border-neutral-800 hover:border-pink-700 rounded lg:py-2 px-4 border-b-4">
                 More about me!
               </Link>
             </div>
@@ -86,7 +86,7 @@ export default function Home() {
                         As a part of Scout Labs as a Strategist + Journalist this semester, 
                         I aided in the research and narrative building for a website for first time homebuyers, 
                         partnered with City of Boston's Home Center and Housing Innovation Lab.  </p>
-                        <Link href="/experience" className="text-base bg-my-gray hover:bg-pink-500 text-white font-bold py-2 px-4 border-b-4 border-neutral-800 hover:border-pink-700 rounded">
+                        <Link href="/experience" className="text-base bg-my-gray hover:bg-my-pink text-white font-bold py-2 px-4 border-b-4 border-neutral-800 hover:border-pink-700 rounded">
                         View Full Description
                         </Link>
                       </div>  
@@ -98,7 +98,7 @@ export default function Home() {
                       Professor Lawrence Evalyn. Received an A on the final, and in the class! 
                       Had to develop and design the website from scratch using HTML/CSS and relevant technologies 
                       such as Github and Brackets.   </p>
-                      <Link href="/experience" className="text-base bg-my-gray hover:bg-pink-500 text-white font-bold py-2 px-4 border-b-4 border-neutral-800 hover:border-pink-700 rounded">
+                      <Link href="/experience" className="text-base bg-my-gray hover:bg-my-pink text-white font-bold py-2 px-4 border-b-4 border-neutral-800 hover:border-pink-700 rounded">
                         View Full Description
                         </Link>
                         </div>
@@ -110,7 +110,7 @@ export default function Home() {
               </div>
             
         </div>
-        <div className="mt-10 animate-bounce text-center font-serif"> <Link href="/experience" className="text-base bg-my-gray hover:bg-pink-500 text-white font-bold py-2 px-4 border-b-4 border-neutral-800 hover:border-pink-700 rounded">
+        <div className="mt-10 animate-bounce text-center font-serif"> <Link href="/experience" className="text-base bg-my-gray hover:bg-my-pink text-white font-bold py-2 px-4 border-b-4 border-neutral-800 hover:border-pink-700 rounded">
                         Explore More Projects!
                         </Link> </div>
         <div className="mt-20 font-serif text-center"> <Link href={"#first page start"}>&#10595; back to top &#10595;</Link>
