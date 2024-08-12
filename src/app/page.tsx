@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <main>
       <div id="first page start"className="mt-10 ml-[12rem] flex items-stretch gap-5 font-serif text-3xl lg:text-7xl">
-      <div className="text-my-gray text-[50] animate-bounce font-light">✼❣❋</div>
+      <div className="text-my-gray text-[50] font-light">✼❣❋</div>
         <div className="pl-2 text-my-gray"> Hi, I'm</div>
         <div className="text-my-pink">Isabella Iype!</div>
-        <div className="text-my-gray text-[50] animate-bounce font-light">❋❣✼</div>
+        <div className="text-my-gray text-[50] font-light">❋❣✼</div>
 
       </div>
       <div className="pl-4 gap-2 text-left lg:grid grid-cols-2">
