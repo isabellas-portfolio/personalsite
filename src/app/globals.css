@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Source Sans Pro from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -15,18 +18,17 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+/* Define the default font-family as Source Sans Pro globally */
 @layer base {
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/Roboto.woff2) format('woff2');
+  body {
+    @apply font-sans; /* Apply Tailwind's sans-serif class */
+    font-family: 'Source Sans Pro', sans-serif; /* Use Source Sans Pro as the font */
   }
-}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
 }
