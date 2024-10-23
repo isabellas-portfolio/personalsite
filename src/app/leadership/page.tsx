@@ -1,5 +1,8 @@
 import Image from "next/image";
-import scoutpic from "/public/homebuyerguide (1).png"; // Make sure to replace this with the correct path to your image
+import scoutpic from "/public/homebuyerguide (1).png"; 
+import ivpic from "/public/saiv1.png"; 
+import apopic from "/public/apo.png"; 
+import choirpic from "/public/choir.png"; 
 
 export default function Leadership() {
   return (
@@ -38,7 +41,7 @@ export default function Leadership() {
                 Managing social media platform, grew Instagram to 100+ followers, gained 10+ new members, curated Instagram posts and stories.
               </p>
             </div>
-            <Image src={scoutpic} alt="Social Media Manager @ South Asian InterVarsity" className="w-[12rem] h-auto object-cover" />
+            <Image src={ivpic} alt="Social Media Manager @ South Asian InterVarsity" className="w-[12rem] h-auto object-cover" />
           </div>
         </div>
 
@@ -53,7 +56,7 @@ export default function Leadership() {
                 Engaging in community service projects, participating in leadership training, fostering fellowship among members.
               </p>
             </div>
-            <Image src={scoutpic} alt="Brother/Member @ Alpha Phi Omega" className="w-[12rem] h-auto object-cover" />
+            <Image src={apopic} alt="Brother/Member @ Alpha Phi Omega" className="w-[12rem] h-auto object-cover" />
           </div>
         </div>
 
@@ -68,7 +71,7 @@ export default function Leadership() {
                 Participating in choral performances, collaborating with fellow singers, developing musical skills.
               </p>
             </div>
-            <Image src={scoutpic} alt="Member @ NU Choral Society" className="w-[12rem] h-auto object-cover" />
+            <Image src={choirpic} alt="Member @ NU Choral Society" className="w-[12rem] h-auto object-cover" />
           </div>
         </div>
       </div>
