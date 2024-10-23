@@ -45,7 +45,7 @@ export default function Home() {
                className="text-my-pink underline underline-offset-6" 
                href="https://scout.camd.northeastern.edu"
                >Scout</a></span> </p>
-              <p> <span className="animate-pulse text-my-pink">❀</span> Small Group Leader & Social Media Manager @ <span> <a target="_blank" rel="noopener noreferrer" 
+              <p> <span className="animate-pulse text-my-pink">❀</span> Community Group Leader @ <span> <a target="_blank" rel="noopener noreferrer" 
                className="text-my-pink underline underline-offset-6" 
                href="https://www.instagram.com/neusaiv/"
                >SAIV</a></span> </p>

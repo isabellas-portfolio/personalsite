@@ -11,20 +11,21 @@ export default function Leadership() {
         Right now, I'm working on honing in my leadership skills in many different roles! From working with designers and back-end developers, to my own community service initiatives and faith-based ministry. I'm <span className="font-bold">passionate about effective leadership and communication</span> to facilitate projects between many different types of people.
       </p>
       <div className="grid grid-cols-1 gap-12 mt-12 place-items-center">
-        {/* Project Lead @ Scout */}
+        {/* Developer + Journalist @ Scout */}
         <div className="flex justify-center items-start gap-4 max-w-4xl">
           <p className="text-my-gray font-serif min-w-[8rem]">Sept 2024 — PRESENT</p>
           <div className="flex flex-1 gap-4 items-start">
             <div>
-              <h2 className="text-lg font-bold text-my-gray font-serif">Project Lead @ Scout</h2>
+              <h2 className="text-lg font-bold text-my-gray font-serif">Developer + Journalist @ Scout</h2>
               <p className="text-sm text-my-pink font-bold font-serif">Collaboration, Decision Making, Communication</p>
               <p className="text-base font-light text-my-gray font-serif max-w-[25rem]">
-                Leading a team of 7 in innovative design projects, coordinating meetings and project timelines, ensuring high-quality deliverables and client satisfaction.
+              Conducted extensive interviews with first-time homebuyers in Boston to gain insights into needs and challenges. Reworked a website to streamline the homebuying process for Bostonians. Developed strategies for streamlining the homebuying process and improving accessibility.
               </p>
             </div>
             <Image src={scoutpic} alt="Project Lead @ Scout" className="w-[12rem] h-auto object-cover" />
           </div>
         </div>
+         
 
         {/* Social Media Manager @ South Asian InterVarsity */}
         <div className="flex justify-center items-start gap-4 max-w-4xl">
@@ -41,12 +42,12 @@ export default function Leadership() {
           </div>
         </div>
 
-        {/* Brother/Member @ Alpha Phi Omega */}
+        {/* Member @ Alpha Phi Omega */}
         <div className="flex justify-center items-start gap-4 max-w-4xl">
           <p className="text-my-gray font-serif min-w-[8rem]">Jan 2024 — PRESENT</p>
           <div className="flex flex-1 gap-4 items-start">
             <div className="font-serif">
-              <h2 className="text-lg font-bold text-my-gray">Brother/Member @ Alpha Phi Omega</h2>
+              <h2 className="text-lg font-bold text-my-gray">Member @ Alpha Phi Omega</h2>
               <p className="text-sm text-my-pink font-bold">Service, Leadership, Fellowship</p>
               <p className="text-base font-light text-my-gray max-w-[25rem]">
                 Engaging in community service projects, participating in leadership training, fostering fellowship among members.
