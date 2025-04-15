@@ -6,14 +6,16 @@ export default function Experience() {
   // Smooth scroll for sidebar links
   useEffect(() => {
     const links = document.querySelectorAll(".sidebar-link");
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const id = e.target.getAttribute("href")?.replace("#", "");
-        const section = document.getElementById(id);
-        section?.scrollIntoView({ behavior: "smooth" });
-      });
-    });
+links.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = e.target as HTMLAnchorElement;
+    const id = target.getAttribute("href")?.replace("#", "");
+    const section = document.getElementById(id ?? "");
+    section?.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
   }, []);
 
   // Experience data
