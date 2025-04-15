@@ -33,14 +33,10 @@ export default function Home() {
             <div id="Current positions">
               <h1 className="pl-2"> Currently:</h1>
               <div className="font-serif text-xl max-w-[230] pl-2">
-               <p> <span className="animate-pulse text-my-pink">❀</span> IT Engineer @ <span> <a target="_blank" rel="noopener noreferrer" 
+               <p> <span className="animate-pulse text-my-pink">❀</span> Incoming AI Product Developer @ <span> <a target="_blank" rel="noopener noreferrer" 
                className="text-my-pink underline underline-offset-6" 
-               href="https://www.wayfair.com/gateway.php?&refid=GX281264597885.
-               Wayfair~b&position=&network=g&pcrid=281264597885&device=c&targetid=
-               kwd-3598608535&channel=GoogleBrand&gad_source=1&gbraid=
-               0AAAAAD9ISC7kLJvWRXDDVBjYJigzZaqcx&gclid=CjwKCAjwo
-               6GyBhBwEiwAzQTmc0isXH3SnABbw8GMXeSS06sS05bP387tfKjrGsFOzDGySSpDww0JwhoCnGUQAvD_BwE"
-               >Wayfair</a></span> </p> 
+               href="https://burnes.northeastern.edu"
+               >The Burnes Center</a></span> </p> 
               <p> <span className="animate-pulse text-my-pink">❀</span> Project Lead @ <span> <a target="_blank" rel="noopener noreferrer" 
                className="text-my-pink underline underline-offset-6" 
                href="https://scout.camd.northeastern.edu"
