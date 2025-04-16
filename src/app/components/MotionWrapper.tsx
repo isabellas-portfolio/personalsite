@@ -16,7 +16,7 @@ export default function MotionWrapper() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <h1 className="text-my-gray text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+        <h1 className="text-my-gray text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight whitespace-normal md:whitespace-nowrap">
           Hi, I’m <span className="text-my-pink">Isabella Iype!</span>
         </h1>
         <p className="text-my-gray max-w-[22rem] text-base"> <span className="font-bold" >Motivated </span> 
@@ -27,7 +27,10 @@ export default function MotionWrapper() {
         <div className="space-y-1 text-my-gray">
           <p>📍 Based in Boston, MA</p>
           <p className="text-sm">
-            <span className="inline-block animate-spin-slow text-my-pink">❀</span> AI Product Developer @ <a href="https://burnes.northeastern.edu" className="underline text-my-pink">Burnes Center</a>
+            <span className="inline-block animate-spin-slow text-my-pink">❀</span> Computer Science & English @ <a href="https://northeastern.edu" className="underline text-my-pink">Northeastern University</a>
+          </p>
+          <p className="text-sm">
+            <span className="inline-block animate-spin-slow text-my-pink">❀</span> Incoming AI Product Developer @ <a href="https://burnes.northeastern.edu" className="underline text-my-pink">The Burnes Center</a>
           </p>
           <p className="text-sm">
             <span className="inline-block animate-spin-slow text-my-pink">❀</span> Project Lead @ <a href="https://scout.camd.northeastern.edu" className="underline text-my-pink">Scout</a>
