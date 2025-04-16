@@ -12,6 +12,8 @@ const config: Config = {
         "bella-pink" : "#ffd6f5",
         "my-pink" : "#de5fbe",
         "my-gray" : "#555759",
+        "anjana" : "#6b194d",
+        "anjana-2" : "#821159",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -21,9 +23,13 @@ const config: Config = {
       animation: {
         "spin-slow": "spin 6s linear infinite", // 🌸 ← Add this
       },
+      fontFamily: {
+        jost: ['"Jost"', "sans-serif"],
+      },
     },
   },
   plugins: [],
+
 };
 
 export default config;

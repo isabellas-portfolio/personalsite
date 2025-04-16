@@ -100,7 +100,7 @@ links.forEach((link) => {
         "Built from scratch using HTML and CSS.",
         "Designed a navigable showcase for projects and writing.",
       ],
-      summary: "My digital playground — pink, personal, and professional.",
+      summary: "My digital playground — bright, personal, and professional.",
     },
     {
       id: "saiv",
@@ -137,16 +137,16 @@ links.forEach((link) => {
   };
 
   return (
-    <main className="font-serif bg-white text-my-gray flex flex-col lg:flex-row px-6 lg:px-24 py-12">
+    <main className="font-serif bg-white text-black flex flex-col lg:flex-row px-6 lg:px-24 py-12">
       {/* Sidebar Navigation */}
       <aside className="hidden lg:block sticky top-24 w-1/4 pr-8">
-        <nav className="flex flex-col gap-3 border-l-2 border-my-pink pl-4">
-          <p className="mb-3 text-my-gray font-bold text-xl">🔗 Navigate:</p>
+        <nav className="flex flex-col gap-3 border-l-2 border-anjana pl-4">
+          <p className="mb-3 text-black font-bold text-xl">🔗 Navigate:</p>
           {experiences.map((exp) => (
             <a
               key={exp.id}
               href={`#${exp.id}`}
-              className="sidebar-link text-my-pink hover:text-my-gray hover:translate-x-1 transition-all duration-150 text-sm font-semibold"
+              className="sidebar-link text-anjana hover:text-black hover:translate-x-1 transition-all duration-150 text-sm font-semibold"
             >
               {exp.icon} {exp.title}
             </a>
@@ -166,13 +166,13 @@ links.forEach((link) => {
             key={exp.id}
             id={exp.id}
             variants={cardVariants}
-            className="max-w-[500px] bg-[#fff0f5] rounded-xl border border-my-pink p-4 sm:p-5 shadow-sm hover:shadow-lg transition-shadow duration-200"
+            className="max-w-[500px] bg-[#fff0f5] rounded-xl border border-anjana p-4 sm:p-5 shadow-sm hover:shadow-lg transition-shadow duration-200"
           >
-            <h2 className="text-xl lg:text-2xl font-bold text-my-gray">
+            <h2 className="text-xl lg:text-2xl font-bold text-black">
               {exp.icon} {exp.title}
             </h2>
-            <p className="text-sm font-medium text-my-gray">{exp.location}</p>
-            <p className="text-my-pink font-semibold text-sm">{exp.role}</p>
+            <p className="text-sm font-medium text-black">{exp.location}</p>
+            <p className="text-anjana font-semibold text-sm">{exp.role}</p>
             <p className="text-sm mb-2">{exp.dates}</p>
             <p className="text-sm font-light mb-3">{exp.summary}</p>
             <ul className="list-disc list-inside text-sm space-y-1">

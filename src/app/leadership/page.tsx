@@ -66,10 +66,10 @@ const item = {
 export default function Leadership() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
-      <h1 className="font-serif text-3xl lg:text-5xl text-my-pink font-bold text-center">
+      <h1 className="font-serif text-3xl lg:text-5xl text-anjana font-bold text-center">
         Leadership & Involvement!
       </h1>
-      <p className="font-serif text-center text-my-gray max-w-4xl mx-auto mt-5 text-base lg:text-lg">
+      <p className="font-serif text-center text-black max-w-4xl mx-auto mt-5 text-base lg:text-lg">
         I'm currently honing my leadership skills through design, service, faith, and music. Whether it's guiding creative projects or helping build welcoming communities, I'm <span className="font-bold">passionate about connection, collaboration, and impact.</span>
       </p>
 
@@ -83,14 +83,14 @@ export default function Leadership() {
           <motion.div
             key={index}
             variants={item}
-            className="bg-[#fff0f5] border border-my-pink rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-4"
+            className="bg-[#fff0f5] border border-anjana rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-4"
           >
             <div className="flex justify-between items-start">
               <div>
-                <h2 className="text-lg font-bold text-my-gray font-serif">
+                <h2 className="text-lg font-bold text-black font-serif">
                   {role.title}
                 </h2>
-                <p className="text-sm text-my-pink font-bold font-serif">
+                <p className="text-sm text-anjana font-bold font-serif">
                   {role.skills}
                 </p>
               </div>
@@ -100,10 +100,10 @@ export default function Leadership() {
                 className="w-[5.5rem] h-auto object-cover rounded"
               />
             </div>
-            <p className="text-sm font-medium text-my-gray font-serif">
+            <p className="text-sm font-medium text-black font-serif">
               {role.timeframe}
             </p>
-            <p className="text-sm font-light text-my-gray font-serif">
+            <p className="text-sm font-light text-black font-serif">
               {role.description}
             </p>
           </motion.div>

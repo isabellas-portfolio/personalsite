@@ -7,7 +7,7 @@ interface Props {
 }
 export default function Pagelink({text, page} :Props) {
     return(
-        <Link href={page} className="font-bold text-my-gray hover:text-my-pink">
+        <Link href={page} className="font-bold text-black hover:text-anjana">
        {text}
         </Link>)
 } 

@@ -11,7 +11,7 @@ export default function NowPlaying() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-[#ffe6f2] border border-my-pink p-4 rounded-xl shadow-lg max-w-[270px] text-my-gray font-serif"
+      className="bg-[#ffe6f2] border border-anjana p-4 rounded-xl shadow-lg max-w-[270px] text-black font-serif"
     >
       <div className="flex items-center gap-4">
         {/* Spinning Record */}
@@ -24,8 +24,8 @@ export default function NowPlaying() {
         </motion.div>
 
         <div className="flex flex-col text-sm">
-          <span className="text-my-pink font-semibold">Now Playing</span>
-          <span className="font-bold">“Maine” — Noah Kahan</span>
+          <span className="text-anjana font-semibold">Now Playing</span>
+          <span className="font-bold">“Maine” by Noah Kahan</span>
         </div>
       </div>
 
@@ -36,7 +36,7 @@ export default function NowPlaying() {
           {[1, 2, 3].map((bar) => (
             <motion.div
               key={bar}
-              className="w-1 bg-my-pink rounded-full"
+              className="w-1 bg-anjana rounded-full"
               animate={{ height: ["0.5rem", "1.5rem", "0.75rem"] }}
               transition={{
                 duration: 1,
@@ -50,7 +50,7 @@ export default function NowPlaying() {
 
         {/* Play/Pause toggle */}
         <button
-          className="text-my-gray hover:text-my-pink transition"
+          className="text-black hover:text-anjana transition"
           onClick={() => setIsPlaying(!isPlaying)}
         >
           {isPlaying ? <FaPause /> : <FaPlay />}
@@ -61,7 +61,7 @@ export default function NowPlaying() {
           href="https://open.spotify.com/track/3Z2anmIVG8b1GelyeFQdnP?si=ac98e244c07346c3"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-my-pink hover:underline flex items-center gap-1"
+          className="text-anjana hover:underline flex items-center gap-1"
         >
           <FaSpotify />
           <span className="text-xs">Listen</span>

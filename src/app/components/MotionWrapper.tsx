@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import profilepic from "/public/profile.png";
-import NowPlaying from "./NowPlaying"; // adjust path as needed
+import NowPlaying from "./NowPlaying"; 
 
 
 export default function MotionWrapper() {
   return (
-    <section className="min-h-screen px-8 lg:px-24 py-20 bg-[#fff0f5] flex flex-col-reverse lg:flex-row items-center justify-between gap-12 font-serif">
+    <section className="min-h-screen px-8 lg:px-24 py-20 bg-white flex flex-col-reverse lg:flex-row items-center justify-between gap-12 font-jost">
       {/* Left Column */}
       <motion.div
         className="max-w-xl space-y-6"
@@ -16,29 +16,29 @@ export default function MotionWrapper() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <h1 className="text-my-gray text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight whitespace-normal md:whitespace-nowrap">
-          Hi, I’m <span className="text-my-pink">Isabella Iype!</span>
+        <h1 className="text-anjana text-3xl sm:text-5xl lg:text-6xl leading-tight whitespace-normal md:whitespace-nowrap">
+          Hi, I’m Isabella Iype!
         </h1>
-        <p className="text-my-gray max-w-[22rem] text-base"> <span className="font-bold" >Motivated </span> 
-            by technology and the humanities <span className="font-bold">to find tech solutions </span> 
-            that combine the analytical power of <span className="font-bold">Computer Science </span> 
-            with the narratives of  <span className="font-bold">Language and Literature</span>. </p>
+        <p className="text-black max-w-[22rem] text-base"> <span className="" >Motivated </span> 
+            by technology and the humanities <span className="">to find tech solutions </span> 
+            that combine the analytical power of <span className="">Computer Science </span> 
+            with the narratives of  <span className="">Language and Literature</span>. </p>
 
-        <div className="space-y-1 text-my-gray">
+        <div className="space-y-1 text-black">
           <p>📍 Based in Boston, MA</p>
           <p className="text-sm">
-            <span className="inline-block animate-spin-slow text-my-pink">❀</span> Computer Science & English @ <a href="https://northeastern.edu" className="underline text-my-pink">Northeastern University</a>
+            <span className="inline-block animate-spin-slow text-anjana">❀</span> Computer Science & English @ <a href="https://northeastern.edu" className="underline text-anjana">Northeastern University</a>
           </p>
           <p className="text-sm">
-            <span className="inline-block animate-spin-slow text-my-pink">❀</span> Incoming AI Product Developer @ <a href="https://burnes.northeastern.edu" className="underline text-my-pink">The Burnes Center</a>
+            <span className="inline-block animate-spin-slow text-anjana">❀</span> Incoming AI Product Developer @ <a href="https://burnes.northeastern.edu" className="underline text-anjana">The Burnes Center</a>
           </p>
           <p className="text-sm">
-            <span className="inline-block animate-spin-slow text-my-pink">❀</span> Project Lead @ <a href="https://scout.camd.northeastern.edu" className="underline text-my-pink">Scout</a>
+            <span className="inline-block animate-spin-slow text-anjana">❀</span> Project Lead @ <a href="https://scout.camd.northeastern.edu" className="underline text-anjana">Scout</a>
           </p>
         </div>
 
         <div className="pt-4">
-          <a href="/aboutme" className="bg-my-gray hover:bg-my-pink text-white font-bold py-2 px-6 rounded-full shadow-md transition hover:scale-105 border-b-4 border-neutral-800 hover:border-pink-700">
+          <a href="/aboutme" className="bg-black hover:bg-anjana text-white font-bold py-2 px-6 rounded-full shadow-md transition hover:scale-105 border-b-4 border-neutral-800 hover:border-pink-700">
             More About Me
           </a>
         </div>

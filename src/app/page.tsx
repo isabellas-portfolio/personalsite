@@ -9,21 +9,21 @@ import ProjectCard from "./components/ProjectCard";
 
 export default function HomePage() {
   return (
-    <main className="bg-white font-serif">
+    <main className="bg-white font-jost">
       {/* Animated Hero Section */}
       <MotionWrapper />
 
     
       {/* Scroll to Projects Button */}
       <div className="text-center text-md mt-16">
-        <Link href="#projects" className="text-my-gray underline hover:text-my-pink transition">
+        <Link href="#projects" className="text-black underline hover:text-anjana transition">
           ↓ my projects ↓
         </Link>
       </div>
 
       {/* Projects Section */}
-      <section id="projects" className="mt-32 px-6 font-serif text-my-gray">
-  <h2 className="text-3xl lg:text-5xl text-my-pink font-bold text-center mb-12">
+      <section id="projects" className="mt-32 px-6 font-jost text-black">
+  <h2 className="text-3xl lg:text-5xl text-anjana font-bold text-center mb-12">
     Projects: In and Out of the Classroom
   </h2>
 
@@ -46,7 +46,7 @@ export default function HomePage() {
       <div className="mt-20 text-center">
         <Link
           href="/experience"
-          className="bg-my-gray hover:bg-my-pink text-white font-bold py-2 px-6 rounded-full border-b-4 border-neutral-800 hover:border-pink-700 transition"
+          className="bg-black hover:bg-anjana text-white font-bold py-2 px-6 rounded-full border-b-4 border-neutral-800 hover:border-pink-700 transition"
         >
           Explore More Projects!
         </Link>
@@ -54,7 +54,7 @@ export default function HomePage() {
 
       {/* Back to Top */}
       <div className="mt-20 text-center">
-        <Link href="#top" className="text-my-gray underline hover:text-my-pink transition">
+        <Link href="#top" className="text-black underline hover:text-anjana transition">
           ↑ back to top ↑
         </Link>
       </div>
