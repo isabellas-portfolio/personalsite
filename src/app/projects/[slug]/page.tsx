@@ -1,11 +1,124 @@
-import { projects } from "../../data/projectsData";
-import ProjectLayout from "../../components/ProjectLayout";
-import { notFound } from "next/navigation";
+"use client";
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
+import { projects } from "../../data/projectsData"; 
+import { notFound } from "next/navigation";
+import Image from "next/image";
+
+export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
 
-  if (!project) return notFound();
+  if (!project) {
+    notFound();
+  }
 
-  return <ProjectLayout project={project} />;
+  return (
+    <main className="bg-white font-serif px-6 lg:px-24 py-20 min-h-screen">
+      
+      {/* Project Title and Tags */}
+      <div className="text-center space-y-4">
+        <h1 className="text-4xl lg:text-6xl font-extrabold text-anjana">{project.title}</h1>
+        <div className="flex flex-wrap justify-center gap-2 text-black text-sm">
+          {project.tags.map((tag) => (
+            <span key={tag} className="border border-black px-3 py-1 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Project Image */}
+      <div className="flex justify-center mt-12">
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={800}
+          height={500}
+          className="rounded-xl shadow-lg object-cover"
+        />
+      </div>
+
+      {/* Project Overview */}
+      <section className="mt-20 space-y-6 max-w-4xl mx-auto">
+        <h2 className="text-3xl text-anjana font-bold">Project Overview</h2>
+        <p className="text-black">{project.overview}</p>
+      </section>
+
+      {/* My Role */}
+      <section className="mt-16 space-y-4 max-w-4xl mx-auto">
+        <h2 className="text-3xl text-anjana font-bold">My Role</h2>
+        <p className="text-black font-bold">{project.role}</p>
+        <ul className="list-disc list-inside text-black space-y-2">
+          {project.responsibilities.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Research Process */}
+      {project.researchProcess && (
+        <section className="mt-16 space-y-8 max-w-4xl mx-auto">
+          <h2 className="text-3xl text-anjana font-bold">Research Process</h2>
+
+          {project.userInterviews && (
+            <div className="space-y-2">
+              <h3 className="text-2xl font-semibold text-black">User Interviews</h3>
+              <p className="text-black">{project.userInterviews}</p>
+            </div>
+          )}
+
+          {project.keyFindings && (
+            <div className="space-y-2">
+              <h3 className="text-2xl font-semibold text-black">Key Findings</h3>
+              <ul className="list-disc list-inside text-black space-y-2">
+                {project.keyFindings.map((finding, index) => (
+                  <li key={index}>{finding}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {project.maps && (
+            <div className="space-y-2">
+              <h3 className="text-2xl font-semibold text-black">Maps and Diagrams</h3>
+              <ul className="list-disc list-inside text-black">
+                {project.maps.map((map, index) => (
+                  <li key={index}>{map}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* Development Process */}
+      {project.developmentProcess && (
+        <section className="mt-16 space-y-6 max-w-4xl mx-auto">
+          <h2 className="text-3xl text-anjana font-bold">Development Process</h2>
+          <ul className="list-disc list-inside text-black space-y-2">
+            {project.developmentProcess.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Outcome */}
+      {project.outcome && (
+        <section className="mt-16 space-y-6 max-w-4xl mx-auto">
+          <h2 className="text-3xl text-anjana font-bold">Outcome</h2>
+          <p className="text-black">{project.outcome}</p>
+        </section>
+      )}
+
+      {/* Back to Projects Button */}
+      <div className="mt-20 text-center">
+        <a
+          href="/#projects"
+          className="bg-black hover:bg-anjana text-white font-bold py-2 px-6 rounded-full border-b-4 border-neutral-800 hover:border-pink-700 transition"
+        >
+          ← Back to Projects
+        </a>
+      </div>
+    </main>
+  );
 }
