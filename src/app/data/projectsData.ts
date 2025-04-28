@@ -1,4 +1,5 @@
 import homebuyerImg from "/public/homebuyerguide (1).png";
+import homesharerImg from "/public/homesharer.png";
 
 export const projects = [
     {
@@ -22,7 +23,7 @@ export const projects = [
       slug: "homesharing-research",
       title: "Boston Homesharing Research",
       tags: ["Project Management", "UX Research", "Process Design"],
-      image: homebuyerImg,
+      image: homesharerImg,
       role: "Project Lead",
       timeline: "Sept 2024 – Present",
       partner: "The Housing Innovation Lab at the City of Boston",
