@@ -16,7 +16,7 @@ export default function NowPlaying() {
       <div className="flex items-center gap-4">
         {/* Spinning Record */}
         <motion.div
-          animate={{ rotate: 360 }}
+          animate={isPlaying ? { rotate: 360 } : false}
           transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
           className="text-3xl"
         >
@@ -37,13 +37,21 @@ export default function NowPlaying() {
             <motion.div
               key={bar}
               className="w-1 bg-anjana rounded-full"
-              animate={{ height: ["0.5rem", "1.5rem", "0.75rem"] }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                repeatType: "reverse",
-                delay: bar * 0.1,
-              }}
+              animate={
+                isPlaying
+                  ? { height: ["0.5rem", "1.5rem", "0.75rem"] }
+                  : { height: "0.75rem" }
+              }
+              transition={
+                isPlaying
+                  ? {
+                      duration: 1,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: bar * 0.1,
+                    }
+                  : { duration: 0 }
+              }
             />
           ))}
         </div>
