@@ -3,6 +3,13 @@
 import { projects } from "../../data/projectsData"; 
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import empathyMap1 from "/public/empathymap1.png";
+import empathyMap2 from "/public/empathymap2.png";
+import interviewMap1 from "/public/interviewmap1.png";
+import journeyMap from "/public/journeymap.png";
+import serviceBlueprint from "/public/serviceblueprint.png";
+import userPersona1 from "/public/userpersona1.png";
+import userPersona2 from "/public/userpersona2.png";
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
@@ -77,16 +84,35 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </div>
           )}
 
-          {project.maps && (
-            <div className="space-y-2">
-              <h3 className="text-2xl font-semibold text-black">Maps and Diagrams</h3>
-              <ul className="list-disc list-inside text-black">
-                {project.maps.map((map, index) => (
-                  <li key={index}>{map}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+{project.maps && (
+  <div className="space-y-8">
+    <h3 className="text-2xl font-semibold text-black">Maps and Diagrams</h3>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {[ 
+        { src: empathyMap1, label: "Empathy Map #1" },
+        { src: empathyMap2, label: "Empathy Map #2" },
+        { src: interviewMap1, label: "Interview Synthesis Map" },
+        { src: journeyMap, label: "Journey Map" },
+        { src: serviceBlueprint, label: "Service Blueprint" },
+        { src: userPersona1, label: "User Persona #1" },
+        { src: userPersona2, label: "User Persona #2" }
+      ].map(({ src, label }, index) => (
+        <div key={index} className="space-y-2">
+          <Image
+            src={src}
+            alt={label}
+            width={600}
+            height={400}
+            className="rounded-md shadow-md object-contain"
+          />
+          <p className="text-sm text-center text-black">{label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
         </section>
       )}
 
