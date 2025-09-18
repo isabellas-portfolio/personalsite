@@ -30,10 +30,10 @@ export default function MotionWrapper() {
             <span className="inline-block animate-spin-slow text-anjana">❀</span> Computer Science & English @ <a href="https://northeastern.edu" className="underline text-anjana">Northeastern University</a>
           </p>
           <p className="text-sm">
-            <span className="inline-block animate-spin-slow text-anjana">❀</span> Incoming AI Product Developer @ <a href="https://burnes.northeastern.edu" className="underline text-anjana">The Burnes Center</a>
+            <span className="inline-block animate-spin-slow text-anjana">❀</span> Gen AI Product Developer @ <a href="https://burnes.northeastern.edu" className="underline text-anjana">The Burnes Center</a>
           </p>
           <p className="text-sm">
-            <span className="inline-block animate-spin-slow text-anjana">❀</span> Project Lead @ <a href="https://scout.camd.northeastern.edu" className="underline text-anjana">Scout</a>
+            <span className="inline-block animate-spin-slow text-anjana">❀</span> Labs Director @ <a href="https://scout.camd.northeastern.edu" className="underline text-anjana">Scout</a>
           </p>
         </div>
 
