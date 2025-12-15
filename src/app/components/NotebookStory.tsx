@@ -79,13 +79,11 @@ export default function NotebookStory() {
       rotateY: direction > 0 ? maxRotation : -maxRotation,
       x: direction > 0 ? 40 : -40,
       opacity: 0,
-      boxShadow: "0 0 0 rgba(15, 23, 42, 0.0)",
     }),
     center: {
       rotateY: 0,
       x: 0,
       opacity: 1,
-      boxShadow: "0 18px 30px rgba(15, 23, 42, 0.18)",
       transition: {
         duration: 0.55,
         ease: [0.33, 1.0, 0.68, 1.0],
@@ -95,7 +93,6 @@ export default function NotebookStory() {
       rotateY: direction > 0 ? -maxRotation : maxRotation,
       x: direction > 0 ? -40 : 40,
       opacity: 0,
-      boxShadow: "0 0 0 rgba(15, 23, 42, 0.0)",
       transition: {
         duration: 0.45,
         ease: [0.4, 0.0, 0.6, 1.0],
@@ -104,8 +101,8 @@ export default function NotebookStory() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F7F3EE] flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-3xl md:max-w-2xl">
+    <main className="bg-white flex justify-center px-4 pt-12 pb-32">
+      <div className="w-full max-w-[1100px]">
         {/* Story Header */}
         <div className="mb-6 text-center">
           <p className="font-hand text-[#4B164B] text-sm">
@@ -138,10 +135,10 @@ export default function NotebookStory() {
         </div>
 
         {/* Hardcover Book Card */}
-        <div className="relative w-full max-w-3xl md:max-w-2xl md:aspect-[3/4] rounded-[28px] bg-gradient-to-br from-[#CBB3A5] via-[#DCC9BC] to-[#C2AA9C] shadow-[0_18px_45px_rgba(0,0,0,0.25)] border border-black/15 overflow-hidden">
-          <div className="flex h-full">
+        <div className="relative w-full max-w-[1100px] rounded-[28px] bg-gradient-to-br from-[#B8A092] via-[#C9B5A8] to-[#B89E8F] shadow-[0_18px_40px_rgba(0,0,0,0.08)] border border-black/8 overflow-hidden opacity-90">
+          <div className="flex h-[560px] md:h-[620px]">
             {/* Spine */}
-            <div className="relative w-16 md:w-20 bg-gradient-to-b from-[#B9A192] to-[#A38776] border-r border-black/15 flex flex-col justify-between items-center py-8 flex-shrink-0">
+            <div className="relative w-20 md:w-24 bg-gradient-to-b from-[#B9A192] to-[#A38776] border-r border-black/15 flex flex-col justify-between items-center py-8 flex-shrink-0">
               {/* Top: Hole Punches */}
               <div className="flex flex-col gap-4 items-center">
                 {[1, 2, 3, 4].map((hole) => (
@@ -166,63 +163,68 @@ export default function NotebookStory() {
             <div className="w-4 bg-[repeating-linear-gradient(to-bottom,#F7EFE5_0,#F7EFE5_3px,#E4D6CA_3px,#E4D6CA_6px)] border-r border-white/60" />
 
             {/* Inner Page */}
-            <div className="relative flex-1 bg-[#FFF9F3] rounded-r-[24px] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05)] overflow-hidden p-6 md:p-8">
-              <AnimatePresence initial={false} custom={direction} mode="popLayout">
-                <motion.div
-                  key={currentPage.id}
-                  custom={direction}
-                  variants={pageVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  style={{
-                    transformOrigin: direction > 0 ? "left center" : "right center",
-                    transformStyle: "preserve-3d",
-                  }}
-                  className="h-full"
-                >
-                  {isCover ? (
-                    <CoverPageContent />
-                  ) : (
-                    <ExperiencePageContent
-                      page={currentPage}
-                      stickyNoteColors={stickyNoteColors}
-                    />
-                  )}
+            <div className="relative flex-1 bg-[#FFF9F3] rounded-r-[24px] shadow-[inset_0_0_0_1px_rgba(120,90,70,0.10),0_20px_50px_rgba(0,0,0,0.10)] border border-[rgba(90,60,50,0.10)] overflow-hidden h-full flex flex-col">
+              {/* Scrollable Content Area */}
+              <div className="relative flex-1 overflow-hidden">
+                <div className="absolute inset-0 overflow-y-auto pt-14 pb-24 px-16">
+                  <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                    <motion.div
+                      key={currentPage.id}
+                      custom={direction}
+                      variants={pageVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      style={{
+                        transformOrigin: direction > 0 ? "left center" : "right center",
+                        transformStyle: "preserve-3d",
+                      }}
+                      className="h-full"
+                    >
+                      {isCover ? (
+                        <CoverPageContent />
+                      ) : (
+                        <ExperiencePageContent
+                          page={currentPage}
+                          stickyNoteColors={stickyNoteColors}
+                        />
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
 
-                  {/* Page Turn Controls */}
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between">
-                    <button
-                      onClick={goToPrev}
-                      aria-label={isCover ? "Go to last page" : "Previous experience"}
-                      className="flex items-center gap-1 text-xs text-slate-600/80 hover:text-slate-900 hover:translate-x-[-2px] transition-transform z-20"
-                    >
-                      <PageArrow direction="left" />
-                      <span className="font-hand">
-                        {isCover ? "back" : "prev"}
-                      </span>
-                    </button>
-                    <button
-                      onClick={goToNext}
-                      aria-label={
-                        pageIndex === orderedPages.length - 1
-                          ? "Go to cover"
-                          : "Next experience"
-                      }
-                      className="flex items-center gap-1 text-xs text-slate-600/80 hover:text-slate-900 hover:translate-x-[2px] transition-transform z-20"
-                    >
-                      <span className="font-hand">
-                        {pageIndex === orderedPages.length - 1
-                          ? "close"
-                          : isCover
-                          ? "open"
-                          : "next"}
-                      </span>
-                      <PageArrow direction="right" />
-                    </button>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+              {/* Page Turn Controls - Fixed at Bottom */}
+              <div className="absolute bottom-8 left-10 right-10 flex justify-between z-20">
+                <button
+                  onClick={goToPrev}
+                  aria-label={isCover ? "Go to last page" : "Previous experience"}
+                  className="flex items-center gap-1 text-xs text-slate-600/80 hover:text-slate-900 hover:translate-x-[-2px] transition-transform"
+                >
+                  <PageArrow direction="left" />
+                  <span className="font-hand">
+                    {isCover ? "back" : "prev"}
+                  </span>
+                </button>
+                <button
+                  onClick={goToNext}
+                  aria-label={
+                    pageIndex === orderedPages.length - 1
+                      ? "Go to cover"
+                      : "Next experience"
+                  }
+                  className="flex items-center gap-1 text-xs text-slate-600/80 hover:text-slate-900 hover:translate-x-[2px] transition-transform"
+                >
+                  <span className="font-hand">
+                    {pageIndex === orderedPages.length - 1
+                      ? "close"
+                      : isCover
+                      ? "open"
+                      : "next"}
+                  </span>
+                  <PageArrow direction="right" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -261,25 +263,22 @@ function ExperiencePageContent({
       </div>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Torn Paper Card */}
-        <div className="lg:col-span-2 relative order-2 lg:order-1">
-          {/* Tape Pieces */}
-          <div className="absolute -top-2 -left-2 w-12 h-6 bg-[#D6C4E6] opacity-80 rounded-sm transform rotate-12 z-10" />
-          <div className="absolute -top-2 -right-2 w-12 h-6 bg-[#F4D8D8] opacity-80 rounded-sm transform -rotate-12 z-10" />
-
-          {/* Main Card */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        {/* Main Content Area */}
+        <div className="lg:col-span-2 relative order-2 lg:order-1 space-y-6">
+          {page.summary && (
+            <p className="text-black font-medium text-base md:text-lg leading-relaxed">
+              {page.summary}
+            </p>
+          )}
+          
+          {/* Small Paper Note for Bullets */}
           <motion.div
-            initial={{ opacity: 0, rotate: -2 }}
-            animate={{ opacity: 1, rotate: -1 }}
+            initial={{ opacity: 0, rotate: -1 }}
+            animate={{ opacity: 1, rotate: -0.5 }}
             transition={{ delay: 0.2 }}
-            className="bg-white border border-[#E0DAD3] shadow-sm p-5 md:p-6 -rotate-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            className="relative bg-white/60 border border-[#E0DAD3]/60 shadow-sm p-5 md:p-6 -rotate-0.5"
           >
-            {page.summary && (
-              <p className="text-black font-medium mb-4 text-base md:text-lg">
-                {page.summary}
-              </p>
-            )}
             <ul className="list-disc list-inside text-black space-y-2 text-sm md:text-base">
               {page.bullets.map((bullet, index) => (
                 <li key={index}>{bullet}</li>

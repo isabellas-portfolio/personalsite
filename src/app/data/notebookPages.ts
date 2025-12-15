@@ -29,7 +29,7 @@ export const notebookPages: NotebookPage[] = [
     company: "Scout Labs",
     location: "Boston, MA",
     role: "UX Project Lead",
-    dates: "Apr. 2024 – Present",
+    dates: "Apr. 2024 – Apr. 2025",
     icon: "🔍",
     startDate: "2024-04-01",
     bullets: [
@@ -161,7 +161,7 @@ export const notebookPages: NotebookPage[] = [
     company: "NU Science Magazine",
     location: "Boston, MA",
     role: "Website Developer",
-    dates: "Sept. 2023 – Present",
+    dates: "Sept. 2023 – Dec. 2023",
     icon: "🧬",
     startDate: "2023-09-01",
     bullets: [
@@ -193,7 +193,7 @@ export const notebookPages: NotebookPage[] = [
     company: "Scout Labs",
     role: "Labs Team Director",
     location: "Boston, MA",
-    dates: "Sept. 2024 – Present",
+    dates: "May. 2025 – Present",
     icon: "🧪",
     summary:
       "Directing Scout Labs' studio of cross-functional student teams to deliver civic-tech and design projects for community partners.",
@@ -228,7 +228,7 @@ export const notebookPages: NotebookPage[] = [
     company: "Burnes Center & City of Boston",
     role: "Generative AI Product Developer",
     location: "Boston, MA",
-    dates: "Sept. 2025 – Present",
+    dates: "Sept. 2025 – Dec 2025",
     icon: "🤖",
     summary:
       "Building Green Tape, a generative-AI powered feedback platform that helps Boston simplify permits and respond to residents more effectively.",
