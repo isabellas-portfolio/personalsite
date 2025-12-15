@@ -26,6 +26,7 @@ const config: Config = {
       },
       fontFamily: {
         jost: ['"Jost"', "sans-serif"],
+        hand: ['"Reenie Beanie"', "cursive"],
       },
     },
   },

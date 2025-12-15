@@ -66,6 +66,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <section className="mt-16 space-y-8 max-w-4xl mx-auto">
           <h2 className="text-3xl text-anjana font-bold">Research Process</h2>
 
+          {project.researchProcessItems && (
+            <div className="space-y-2">
+              <ul className="list-disc list-inside text-black space-y-2">
+                {project.researchProcessItems.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {project.userInterviews && (
             <div className="space-y-2">
               <h3 className="text-2xl font-semibold text-black">User Interviews</h3>
@@ -105,6 +115,27 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             width={600}
             height={400}
             className="rounded-md shadow-md object-contain"
+          />
+          <p className="text-sm text-center text-black">{label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{project.projectImages && project.projectImages.length > 0 && (
+  <div className="space-y-8">
+    <h3 className="text-2xl font-semibold text-black">Project Images</h3>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {project.projectImages.map(({ src, label }, index) => (
+        <div key={index} className="space-y-2">
+          <Image
+            src={src as any}
+            alt={label}
+            width={600}
+            height={400}
+            className="rounded-md shadow-md object-contain"
+            unoptimized
           />
           <p className="text-sm text-center text-black">{label}</p>
         </div>

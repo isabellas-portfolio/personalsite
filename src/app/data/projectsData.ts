@@ -17,9 +17,11 @@ export interface Project {
 
   // Optional extended fields
   researchProcess?: boolean;
+  researchProcessItems?: string[];
   userInterviews?: string;
   keyFindings?: string[];
   maps?: string[];
+  projectImages?: Array<{ src: string; label: string }>;
   developmentProcess?: string[];
   outcome?: string;
 }
@@ -74,5 +76,18 @@ export const projects: Project[] = [
       "Developed a detailed process book documenting research and findings.",
     ],
     links: [],
+    researchProcess: true,
+    researchProcessItems: [
+      "Literature Review",
+      "Preliminary Research",
+      "Stakeholder Maps"
+    ],
+    projectImages: [
+      { src: "/litreview.png", label: "Literature Review" },
+      { src: "/prelimresearch.png", label: "Preliminary Research" },
+      { src: "/summary.png", label: "Research Summary" }
+    ],
+    outcome:
+      "My team presented this research at Scout Conference, Northeastern's RISE, and Scout's final showcase! After our initial research in the fall, we surveyed over 80 people across different areas and demographics in order to get a better understanding of homesharing interest in Boston specifically. We received positive feedback from this survey and handed this research to our partners at the city.",
   },
 ];

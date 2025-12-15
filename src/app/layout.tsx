@@ -26,6 +26,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         />
+        {/* ✅ Google Fonts: Reenie Beanie (Handwriting) */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="font-jost">
         <Navbar />
