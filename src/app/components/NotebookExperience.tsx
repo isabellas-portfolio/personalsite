@@ -88,21 +88,22 @@ export default function NotebookExperience({ experiences }: NotebookExperiencePr
                   className="w-3 h-3 rounded-full bg-[#D4C4B8] mb-6"
                 />
               ))}
-              {/* Margin Doodles */}
-              <div className="mt-auto flex flex-col items-center pb-4">
-                <div className="transform -rotate-90 whitespace-nowrap flex flex-col items-center gap-1">
-                  <span className="font-hand text-[#4B164B] text-base tracking-tight inline-block transform rotate-3">
-                    User research is the backbone
-                  </span>
-                  <div className="text-[#4B164B] transform rotate-3">
-                    <SquiggleUnderline />
-                  </div>
-                  <div className="mt-4 text-[#4B164B]/70 rotate-3">
-                    <SketchStar />
-                  </div>
-                </div>
-              </div>
-            </div>
+             {/* Margin Doodles */}
+<div className="mt-auto flex justify-center pb-6">
+  <div className="flex items-center gap-3 transform -rotate-90 whitespace-nowrap">
+    <span className="font-hand text-[#4B164B] text-base tracking-tight">
+      User research is the backbone
+    </span>
+
+    <div className="text-[#4B164B]/80">
+      <SquiggleUnderline />
+    </div>
+
+    <div className="text-[#4B164B]/70">
+      <SketchStar />
+    </div>
+  </div>
+</div>
 
             {/* Main Content Area */}
             <div className="md:ml-16 p-6 md:p-10">

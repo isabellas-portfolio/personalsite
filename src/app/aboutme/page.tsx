@@ -19,7 +19,7 @@ export default function AboutMe() {
           <h1>About Me!</h1>
 
           <p>
-            Hi, I'm Isabella! I'm a current third year at Northeastern University studying Computer Science and English
+            Hi, I'm Isabella! I'm a current fourth year at Northeastern University studying Computer Science and English
             with a focus in Natural Language Processing. I'm from Long Island, New York. From a young age, I've loved to
             explore technology and all its new advancements! Since coming to Northeastern, I've been able to explore
             technology through a humanities lens which has given me new perspectives on Artificial Intelligence and how it

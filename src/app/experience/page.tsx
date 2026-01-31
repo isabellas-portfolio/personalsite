@@ -1,6 +1,6 @@
 "use client";
-import NotebookStory from "../components/NotebookStory";
+import BookshelfExperience from "../components/BookshelfExperience";
 
 export default function Experience() {
-  return <NotebookStory />;
+  return <BookshelfExperience />;
 }

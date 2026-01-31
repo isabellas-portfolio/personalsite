@@ -150,12 +150,18 @@ export default function NotebookStory() {
               </div>
 
               {/* Bottom: Doodle Group */}
-              <div className="flex flex-col items-center gap-2 pb-4">
-                <p className="font-hand text-base text-[#4B164B] [writing-mode:vertical-rl] whitespace-nowrap">
-                  user research is the backbone
-                </p>
-                <SquiggleUnderline className="text-[#4B164B]/70 h-4" />
-                <SketchStar className="text-[#4B164B]/70 w-4 h-4" />
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <div className="transform -rotate-90 origin-center translate-y-2">
+                  <div className="w-[220px] flex items-center justify-center gap-2">
+                    <p className="font-hand text-base text-[#4B164B] whitespace-nowrap">
+                      user research is the backbone
+                    </p>
+                    <SketchStar className="text-[#4B164B]/70 w-4 h-4" />
+                  </div>
+                  <div className="mt-2 flex justify-center">
+                    <SquiggleUnderline className="text-[#4B164B]/70 h-4" />
+                  </div>
+                </div>
               </div>
             </div>
 
