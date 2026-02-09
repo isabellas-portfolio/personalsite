@@ -1,5 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
+
+import { useMemo } from "react";
 
 export type BookData = {
   id: string;
@@ -9,6 +10,8 @@ export type BookData = {
   toneColor: string;
   spineWidth: number; // 52-84
   isFeatured?: boolean;
+  /** Optional: show a bookmark ribbon or label sticker */
+  showRibbon?: boolean;
 };
 
 interface BookSpineProps {
@@ -16,84 +19,99 @@ interface BookSpineProps {
   onClick: () => void;
 }
 
+// Deterministic "random" from string id for rotation, height, etc.
+function hash(str: string): number {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+  return Math.abs(h);
+}
+
+function useBookVariation(id: string) {
+  return useMemo(() => {
+    const h = hash(id);
+    // Rotation +/- 1.5deg
+    const rotation = ((h % 31) / 31) * 3 - 1.5;
+    // Height variation: base 260, range ~230–290
+    const heightVariation = 260 + (h % 61) - 30;
+    return { rotation, height: Math.max(200, Math.min(320, heightVariation)) };
+  }, [id]);
+}
+
 export default function BookSpine({ book, onClick }: BookSpineProps) {
-  const featured = book.isFeatured || false;
-  // Random rotation for ribbon (14deg or 16deg)
-  const ribbonRotation = book.id?.charCodeAt(0) % 2 === 0 ? "14deg" : "16deg";
-  
-  const base = "relative cursor-pointer rounded-lg transition-all duration-300 hover:-translate-y-1";
-  const normal = "bg-gradient-to-b from-[#B8A092] to-[#8D7667] border border-black/15 shadow-[0_10px_18px_rgba(0,0,0,0.18)]";
-  const featuredStyle = "bg-gradient-to-b from-[#D7C1B3] to-[#9B7B58] border border-black/15 ring-2 ring-[#E7C97A]/70 shadow-[0_18px_30px_rgba(0,0,0,0.22)] translate-y-[-2px]";
+  const { rotation, height } = useBookVariation(book.id);
+  const showRibbon = book.showRibbon ?? book.isFeatured ?? false;
+  const ribbonRotation = (hash(book.id + "r") % 5) - 2 + 14; // ~12–16deg
 
   return (
-    <motion.button
-      onClick={onClick}
-      className="group focus:outline-none focus:ring-2 focus:ring-[#531A53] focus:ring-offset-2 relative mb-[-6px] overflow-visible"
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      style={{
-        width: 110,
-        height: featured ? 320 : 280,
-      }}
+    <div
+      className="book-spine-wrapper"
+      style={
+        {
+          "--spine-rotation": `${rotation}deg`,
+          "--spine-height": `${height}px`,
+          "--spine-width": `${book.spineWidth}px`,
+          "--spine-color": book.toneColor,
+          "--ribbon-rotation": `${ribbonRotation}deg`,
+        } as React.CSSProperties
+      }
     >
-      <div className={`${base} ${featured ? featuredStyle : normal} w-full h-full rounded-lg overflow-visible relative`}>
-        {/* Featured bestseller ribbon - slanted and pinned to top-right */}
-        {featured && (
-          <div 
-            className="absolute -top-3 -right-6 z-30 pointer-events-none"
-            style={{ transform: `rotate(${ribbonRotation})` }}
-          >
-            <div className="relative bg-[#531A53] text-white text-[10px] font-bold tracking-widest px-8 py-1 shadow-[0_10px_18px_rgba(0,0,0,0.25)]">
-              BEST SELLER
+      <button
+        type="button"
+        onClick={onClick}
+        className="book-spine group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#531A53] focus-visible:ring-offset-2 rounded-[6px] overflow-visible border-0 cursor-pointer"
+        aria-label={`Open ${book.title} — Click to explore`}
+      >
+        {/* Cast shadow onto shelf (behind the book) */}
+        <div
+          className="book-spine-shadow"
+          aria-hidden
+        />
 
-              {/* pin head + shadow */}
-              <span className="absolute -left-2 -top-2 h-3 w-3 rounded-full bg-[#F7EFE5] shadow" />
-              <span className="absolute -left-[6px] -top-[6px] h-[6px] w-[6px] rounded-full bg-[#D9C7BE]" />
+        {/* Spine face with 3D-ish effect */}
+        <div className="book-spine-face">
+          {/* Cloth/paper texture overlay */}
+          <div className="book-spine-texture" aria-hidden />
 
-              {/* little fold */}
-              <span className="absolute right-0 top-full w-0 h-0 border-l-[10px] border-l-[#3E113E] border-t-[10px] border-t-transparent" />
-            </div>
-          </div>
-        )}
+          {/* Left edge highlight (cover edge) */}
+          <div className="book-spine-edge-highlight" aria-hidden />
 
-        {/* Inner container for overflow-hidden content */}
-        <div className="absolute inset-0 rounded-lg overflow-hidden">
+          {/* Right: narrow page edge strip (lighter) */}
+          <div className="book-spine-page-edge" aria-hidden />
 
-          {/* Top page edge strip */}
-          <div className="absolute top-0 left-0 right-0 h-2 bg-black/20" />
-          
-          {/* Spine edge highlight */}
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-white/30" />
-          
-          {/* Right edge shadow */}
-          <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-black/15" />
-
-          {/* Icon in top corner */}
+          {/* Icon - small, top area */}
           {book.icon && (
-            <div className="absolute top-3 right-3 text-lg opacity-70">
+            <div className="book-spine-icon" aria-hidden>
               {book.icon}
             </div>
           )}
 
-          {/* Vertical text - reads top to bottom like real spine */}
-          <div className="absolute inset-0 flex flex-col items-center justify-end pb-6">
-            <div className="[writing-mode:vertical-rl] rotate-180">
-              <div className="text-white font-serif font-semibold text-xl tracking-wide">
-                {book.title}
-              </div>
-              {book.dates && (
-                <div className="text-white/70 text-sm mt-3">
-                  {book.dates}
-                </div>
-              )}
-            </div>
+          {/* Vertical spine text */}
+          <div className="book-spine-text">
+            <div className="book-spine-title">{book.title}</div>
+            {book.dates && (
+              <div className="book-spine-dates">{book.dates}</div>
+            )}
+            <div className="book-spine-author">Isabella Iype</div>
           </div>
-
-          {/* Hover overlay */}
-          <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors rounded-lg" />
         </div>
-      </div>
-    </motion.button>
+
+        {/* Bookmark ribbon (outside face so not clipped) */}
+        {showRibbon && (
+          <div
+            className="book-spine-ribbon"
+            style={{ transform: `rotate(${ribbonRotation}deg)` }}
+            aria-hidden
+          >
+            <span className="book-spine-ribbon-pin" />
+            <span className="sr-only">Featured</span>
+          </div>
+        )}
+
+        {/* Tooltip on hover */}
+        <span className="book-spine-tooltip" role="tooltip">
+          Click to explore
+        </span>
+      </button>
+    </div>
   );
 }
-

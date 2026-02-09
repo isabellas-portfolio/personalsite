@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <footer className="flex flex-row justify-between bg-anjana font-serif text-xl mt-6 w-full bottom-0 fixed">
+        <footer className="flex flex-row justify-between bg-anjana font-serif text-xl mt-6 w-full bottom-0 fixed z-20">
             <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
                 <span className="text-sm text-white sm:text-center dark:text-gray-400">
                     © 2025 Made by Isabella Iype ❀。• *₊°。 ❀°。. 
