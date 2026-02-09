@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 /** Uses IntersectionObserver to set true once when element is ~40–60% visible. */
 export function useInViewOnce(
   options?: { threshold?: number; rootMargin?: string }
-): [React.RefObject<HTMLDivElement | null>, boolean] {
+): [React.RefObject<HTMLDivElement>, boolean] {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
