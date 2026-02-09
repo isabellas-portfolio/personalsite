@@ -104,6 +104,7 @@ export default function NotebookExperience({ experiences }: NotebookExperiencePr
     </div>
   </div>
 </div>
+            </div>
 
             {/* Main Content Area */}
             <div className="md:ml-16 p-6 md:p-10">
