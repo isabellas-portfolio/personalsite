@@ -27,16 +27,16 @@ function hashToIndex(str: string, mod: number) {
   return h % mod;
 }
 
-// Preset positions for doodle notes
+// Preset positions for doodle notes (in margins / white space only)
 const DOODLE_PRESETS = [
-  { side: "right", top: "78%", left: "56%", rotate: "-8deg", align: "left" },
-  { side: "right", top: "82%", left: "62%", rotate: "6deg", align: "left" },
-  { side: "right", top: "70%", left: "60%", rotate: "-14deg", align: "left" },
-  { side: "left", top: "80%", left: "10%", rotate: "10deg", align: "left" },
-  { side: "left", top: "72%", left: "14%", rotate: "-6deg", align: "left" },
-  { side: "right", top: "18%", left: "58%", rotate: "-5deg", align: "left" },
-  { side: "left", top: "75%", left: "8%", rotate: "8deg", align: "left" },
-  { side: "right", top: "85%", left: "64%", rotate: "-10deg", align: "left" },
+  { top: "78%", left: "auto" as const, right: "12px", rotate: "-8deg", align: "right" as const },
+  { top: "82%", left: "auto" as const, right: "12px", rotate: "6deg", align: "right" as const },
+  { top: "70%", left: "auto" as const, right: "12px", rotate: "-14deg", align: "right" as const },
+  { top: "80%", left: "12px", right: "auto" as const, rotate: "10deg", align: "left" as const },
+  { top: "72%", left: "12px", right: "auto" as const, rotate: "-6deg", align: "left" as const },
+  { top: "18%", left: "auto" as const, right: "12px", rotate: "-5deg", align: "right" as const },
+  { top: "75%", left: "12px", right: "auto" as const, rotate: "8deg", align: "left" as const },
+  { top: "85%", left: "auto" as const, right: "12px", rotate: "-10deg", align: "right" as const },
 ];
 
 function getDoodleStyle(pageId: string) {
@@ -61,8 +61,10 @@ function DoodleNote({ pageId, text }: { pageId: string; text: string }) {
       style={{
         top: p.top,
         left: p.left,
+        right: p.right,
         transform: `rotate(${p.rotate})`,
-        maxWidth: 240,
+        maxWidth: 108,
+        textAlign: p.align,
       }}
     >
       <p
@@ -74,7 +76,7 @@ function DoodleNote({ pageId, text }: { pageId: string; text: string }) {
         {text}
       </p>
       {/* tiny underline / flourish */}
-      <div className="mt-1 h-[2px] w-24 bg-[#6B3B6B]/25 rounded-full" />
+      <div className={`mt-1 h-[2px] w-24 bg-[#6B3B6B]/25 rounded-full ${p.align === "right" ? "ml-auto" : ""}`} />
     </div>
   );
 }
@@ -117,10 +119,10 @@ export default function BookModal({
             exit={{ scale: 0.98, y: 8 }}
             transition={{ duration: 0.22 }}
           >
-            {/* Close */}
+            {/* Close - fixed to viewport so it's always visible and clickable on long content */}
             <button
               onClick={onClose}
-              className="absolute -top-10 right-0 text-sm font-semibold text-white/90 hover:text-white transition-colors z-10"
+              className="fixed top-4 right-4 md:right-8 text-sm font-semibold text-white/90 hover:text-white transition-colors z-[100] bg-black/20 hover:bg-black/30 rounded px-2 py-1"
             >
               close ✕
             </button>
@@ -208,14 +210,14 @@ export default function BookModal({
                 />
 
                 {/* CONTENT */}
-                <div className="grid grid-cols-2 gap-0">
+                <div className="grid grid-cols-2 gap-0 min-w-0">
                   {/* Left page */}
-                  <div className="relative h-[70vh] overflow-auto py-10" style={{ paddingLeft: "48px", paddingRight: "64px" }}>
-                    <h2 className="font-serif text-3xl text-[#531A53] flex items-center gap-3">
+                  <div className="relative min-h-[70vh] max-h-[95vh] overflow-auto py-10 pb-32 min-w-0" style={{ paddingLeft: "130px", paddingRight: "64px" }}>
+                    <h2 className="font-serif text-2xl md:text-3xl text-[#531A53] flex items-center gap-3">
                       {experience.icon && <span>{experience.icon}</span>}
                       <span>{experience.company}</span>
                     </h2>
-                    <p className="mt-2 text-[#531A53]/80 font-semibold">
+                    <p className="mt-2 text-[#531A53]/80 font-semibold text-sm md:text-base">
                       {experience.role}
                     </p>
                     <p className="mt-1 text-sm text-[#8B6F6F]">
@@ -224,19 +226,19 @@ export default function BookModal({
                     </p>
 
                     {experience.summary && (
-                      <p className="mt-6 text-[#2b1b2b] leading-relaxed">
+                      <p className="mt-4 text-sm text-[#2b1b2b] leading-relaxed">
                         {experience.summary}
                       </p>
                     )}
 
                     {experience.bullets && experience.bullets.length > 0 && (
-                      <div className="mt-8">
-                        <p className="text-sm font-semibold text-[#531A53] mb-3">
+                      <div className="mt-5">
+                        <p className="text-sm font-semibold text-[#531A53] mb-2">
                           Highlights
                         </p>
-                        <ul className="space-y-3 text-[#2b1b2b]">
-                          {experience.bullets.slice(0, 3).map((b, i) => (
-                            <li key={i} className="leading-relaxed">
+                        <ul className="space-y-2 text-[#2b1b2b] list-none text-sm leading-relaxed">
+                          {experience.bullets.map((b, i) => (
+                            <li key={i} className="overflow-visible break-words">
                               • {b}
                             </li>
                           ))}
@@ -247,15 +249,15 @@ export default function BookModal({
                   </div>
 
                   {/* Right page */}
-                  <div className="relative h-[70vh] overflow-auto py-10" style={{ paddingLeft: "64px", paddingRight: "48px" }}>
-                    <p className="text-sm font-semibold text-[#531A53] mb-3">More</p>
+                  <div className="relative min-h-[70vh] max-h-[95vh] overflow-auto py-10 pb-28" style={{ paddingLeft: "64px", paddingRight: "130px" }}>
+                    <p className="text-base font-semibold text-[#531A53] mb-3">More</p>
 
                     {impact.length > 0 ? (
                       <div className="mb-6 rounded-xl bg-white/35 border border-black/5 p-4">
-                        <p className="text-xs font-semibold text-[#531A53]/70 uppercase tracking-widest mb-2">
+                        <p className="text-sm font-semibold text-[#531A53]/70 uppercase tracking-widest mb-2">
                           Impact
                         </p>
-                        <ul className="space-y-2 text-[#2b1b2b]">
+                        <ul className="space-y-2 text-[#2b1b2b] text-base leading-relaxed">
                           {impact.map((x, i) => (
                             <li key={i}>• {x}</li>
                           ))}
@@ -263,26 +265,24 @@ export default function BookModal({
                       </div>
                     ) : null}
 
-                    {experience.bullets && experience.bullets.length > 3 && (
-                      <div>
-                        <p className="text-xs font-semibold text-[#531A53]/70 uppercase tracking-widest mb-2">
-                          Additional Highlights
-                        </p>
-                        <ul className="space-y-2 text-[#2b1b2b]">
-                          {experience.bullets.slice(3).map((b, i) => (
-                            <li key={i}>• {b}</li>
-                          ))}
-                        </ul>
-                      </div>
+                    {impact.length === 0 && (
+                      <p className="text-[#2b1b2b]/70">
+                        Additional details and insights from this experience.
+                      </p>
                     )}
 
-                    {impact.length === 0 &&
-                      (!experience.bullets || experience.bullets.length <= 3) && (
-                        <p className="text-[#2b1b2b]/70">
-                          Additional details and insights from this experience.
+                    {/* Handwritten note directly under Impact (boces + Labs Director), in flow so it never overlaps */}
+                    {(experience.id === "boces" || experience.id === "scout-labs-labs-director") && (
+                      <div className="mt-6 pt-4 border-t border-[#6B3B6B]/15">
+                        <p
+                          className="font-hand text-base leading-snug max-w-md"
+                          style={{ color: "rgba(107, 59, 107, 0.8)" }}
+                        >
+                          {marginNote}
                         </p>
-                      )}
-
+                        <div className="mt-1 h-[2px] w-24 bg-[#6B3B6B]/25 rounded-full" />
+                      </div>
+                    )}
 
                     {/* Dog-ear (page curl) */}
                     <div className="absolute bottom-5 right-5 w-14 h-14 pointer-events-none">
@@ -323,8 +323,10 @@ export default function BookModal({
                   </div>
                 </div>
 
-                {/* Doodle note - positioned relative to entire book spread */}
-                <DoodleNote pageId={experience.id} text={marginNote} />
+                {/* Doodle note - positioned relative to entire book spread (boces + scout-labs-labs-director use inline note under Impact instead) */}
+                {experience.id !== "boces" && experience.id !== "scout-labs-labs-director" && (
+                  <DoodleNote pageId={experience.id} text={marginNote} />
+                )}
               </div>
             </div>
           </motion.div>
