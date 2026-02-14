@@ -1,16 +1,23 @@
 import homebuyerImg from "/public/homebuyerguide (1).png";
 import homesharerImg from "/public/homesharer.png";
+import openPermitImg from "/public/openpermit.png";
 
 import type { StaticImageData } from "next/image";
 
 export interface Project {
   slug: string;
   title: string;
+  /** One-line roles/skills subtitle (e.g. "Developer & Journalist" or tags joined) */
+  subtitle?: string;
   tags: string[];
   image: StaticImageData;
   role: string;
   timeline: string;
   partner: string;
+  /** Team or client name for metadata */
+  team?: string;
+  /** Tools used (e.g. "Drupal, Figma") */
+  tools?: string;
   overview: string;
   responsibilities: string[];
   links?: string[];
@@ -30,11 +37,14 @@ export const projects: Project[] = [
     {
       slug: "homebuyers-guide",
       title: "First-Time Homebuyers Guide",
+      subtitle: "Developer & Journalist",
       tags: ["UX Research", "Interviewing", "Web Dev"],
       image: homebuyerImg,
       role: "Developer & Journalist",
       timeline: "Jan 2024 – Apr 2024",
       partner: "The Housing Innovation Lab at the City of Boston",
+      team: "Housing Innovation Lab, City of Boston",
+      tools: "Drupal, Figma",
       overview:
         "Interviewed first-time homebuyers to identify pain points, then built a Drupal site hosted on the City of Boston’s platform.",
       responsibilities: [
@@ -62,11 +72,14 @@ export const projects: Project[] = [
   {
     slug: "homesharing-research",
     title: "Boston Homesharing Research",
+    subtitle: "Project Lead",
     tags: ["Project Management", "UX Research", "Process Design"],
     image: homesharerImg,
     role: "Project Lead",
-    timeline: "Sept 2024 – Present",
+    timeline: "Sept 2024 – Apr 2025",
     partner: "The Housing Innovation Lab at the City of Boston",
+    team: "Scout Labs × Housing Innovation Lab, City of Boston",
+    tools: "Figma, Surveys, Miro",
     overview:
       "Led a cross-functional team to research home sharing practices in Boston and propose accessible housing solutions.",
     responsibilities: [
@@ -89,5 +102,44 @@ export const projects: Project[] = [
     ],
     outcome:
       "My team presented this research at Scout Conference, Northeastern's RISE, and Scout's final showcase! After our initial research in the fall, we surveyed over 80 people across different areas and demographics in order to get a better understanding of homesharing interest in Boston specifically. We received positive feedback from this survey and handed this research to our partners at the city.",
+  },
+  {
+    slug: "open-permit",
+    title: "OpenPermit (Green Tape Initiative)",
+    subtitle: "Generative AI Product Manager",
+    tags: ["Product Management", "Generative AI", "Civic Tech", "UX Research"],
+    image: openPermitImg,
+    role: "Generative AI Product Manager",
+    timeline: "Sep 2025 – Dec 2025",
+    partner: "Burnes Center for Social Change × City of Boston",
+    team: "Burnes Center Product Team × Boston Mayor's Office of Innovation & Technology",
+    tools: "Figma, Neo4j, Python, OpenAI API, Notion, Miro",
+    overview:
+      "Led product strategy and development for OpenPermit, an AI-powered feedback and insights platform designed to improve Boston's permitting process through structured classification, public transparency, and data-informed policy recommendations.",
+    responsibilities: [
+      "Designed and scoped a citywide AI feedback classification system across five core categories (Economic & Equity, Communication & Service, Technology & Access, Process & Operations, Policy & Rules Clarity).",
+      "Developed prompt architectures and evaluation workflows to improve multi-label classification accuracy.",
+      "Collaborated with city stakeholders through weekly research sessions and iterative user testing.",
+      "Built Figma prototypes and dashboard concepts for internal staff and public-facing transparency tools.",
+      "Explored graph database integrations (Neo4j) to model relationships between feedback themes and policy areas.",
+      "Prepared strategic presentations for senior city leadership and cross-agency stakeholders.",
+    ],
+    links: ["https://github.com/ShadowMasterAJ/OpenFeedback"],
+    researchProcess: true,
+    researchProcessItems: [
+      "Stakeholder Interviews",
+      "Feedback Taxonomy Design",
+      "AI Prompt Engineering",
+      "Dashboard Prototyping",
+      "Policy Insight Mapping",
+    ],
+    projectImages: [
+      { src: "/taxonomy.png", label: "Feedback Classification Taxonomy" },
+      { src: "/feedback-graph.png", label: "Feedback Graph (Neo4j Visualization)" },
+      { src: "/dashboard.png", label: "Internal Staff Dashboard — Feedback Database" },
+      { src: "/publicview.png", label: "Public Transparency View" },
+    ],
+    outcome:
+      "OpenPermit established a structured framework for analyzing resident and business feedback within Boston's permitting transformation initiative. The platform enabled categorization of complex qualitative input into actionable policy insights, supporting improved transparency, operational efficiency, and more equitable access to city services.",
   },
 ];

@@ -1,12 +1,17 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { type NotebookPage } from "../../data/notebookPages";
+import BookPager from "../BookPager";
 
 interface BookModalProps {
   experience: NotebookPage | null;
   isOpen: boolean;
   onClose: () => void;
   isMobile: boolean;
+  /** When set, prev/next pager is shown and keyboard arrows work */
+  allExperiences?: NotebookPage[];
+  onPrev?: () => void;
+  onNext?: () => void;
 }
 
 // Experience-specific margin notes
@@ -86,6 +91,9 @@ export default function BookModal({
   isOpen,
   onClose,
   isMobile,
+  allExperiences,
+  onPrev,
+  onNext,
 }: BookModalProps) {
   if (!experience || !experience.company || !experience.role) return null;
 
@@ -329,6 +337,17 @@ export default function BookModal({
                 )}
               </div>
             </div>
+
+            {/* Prev/next book pager - overlays on top of the book */}
+            {allExperiences && allExperiences.length > 0 && onPrev && onNext && (
+              <BookPager
+                className="absolute inset-0"
+                index={Math.max(0, allExperiences.findIndex((e) => e.id === experience.id))}
+                total={allExperiences.length}
+                onPrev={onPrev}
+                onNext={onNext}
+              />
+            )}
           </motion.div>
         </motion.div>
       )}

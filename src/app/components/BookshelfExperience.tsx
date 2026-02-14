@@ -81,6 +81,22 @@ export default function BookshelfExperience() {
     if (experience) setSelectedExperience(experience);
   };
 
+  // Same order as shelf (by start date) for prev/next paging
+  const experienceList = sorted
+    .map((book) => notebookPages.find((p) => p.id === book.id))
+    .filter((p): p is NotebookPage => p != null);
+  const currentIndex = selectedExperience
+    ? experienceList.findIndex((p) => p.id === selectedExperience.id)
+    : -1;
+
+  const handlePrev = () => {
+    if (currentIndex > 0) setSelectedExperience(experienceList[currentIndex - 1]);
+  };
+  const handleNext = () => {
+    if (currentIndex >= 0 && currentIndex < experienceList.length - 1)
+      setSelectedExperience(experienceList[currentIndex + 1]);
+  };
+
   return (
     <main className="da-section min-h-screen py-8 pb-40">
       <div className="da-container">
@@ -98,6 +114,9 @@ export default function BookshelfExperience() {
           isOpen
           onClose={() => setSelectedExperience(null)}
           isMobile={isMobile}
+          allExperiences={experienceList}
+          onPrev={handlePrev}
+          onNext={handleNext}
         />
       )}
     </main>
