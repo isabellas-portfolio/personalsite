@@ -1,6 +1,6 @@
 "use client";
-import BookshelfExperience from "../components/BookshelfExperience";
+import ExperienceBook from "../components/ExperienceBook";
 
 export default function Experience() {
-  return <BookshelfExperience />;
+  return <ExperienceBook />;
 }

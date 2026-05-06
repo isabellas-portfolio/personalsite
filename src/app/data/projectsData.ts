@@ -1,6 +1,8 @@
 import homebuyerImg from "/public/homebuyerguide (1).png";
 import homesharerImg from "/public/homesharer.png";
 import openPermitImg from "/public/openpermit.png";
+import seniorGuideImg from "/public/northeastern-senior-guide.png";
+import digitizingArchiveImg from "/public/digitizing-archive.png";
 
 import type { StaticImageData } from "next/image";
 
@@ -141,5 +143,49 @@ export const projects: Project[] = [
     ],
     outcome:
       "OpenPermit established a structured framework for analyzing resident and business feedback within Boston's permitting transformation initiative. The platform enabled categorization of complex qualitative input into actionable policy insights, supporting improved transparency, operational efficiency, and more equitable access to city services.",
+  },
+  {
+    slug: "northeastern-senior-guide",
+    title: "A Graduating Senior's Guide to Northeastern",
+    subtitle: "Creator & Product Builder",
+    tags: ["Vibe Coding", "Journalism", "Web Development", "Student Resources"],
+    image: seniorGuideImg,
+    role: "Creator & Product Builder",
+    timeline: "Spring 2026",
+    partner: "Northeastern University (Journalism)",
+    team: "Solo project",
+    tools: "Cursor, Next.js, Tailwind CSS",
+    overview:
+      "Vibe-coding project for a journalism class: a Northeastern senior guide. I developed the concept end to end in Cursor and entered all information and resources myself.",
+    responsibilities: [
+      "Defined the guide’s structure and narrative for first-year and transfer students.",
+      "Built the site in Cursor with a clear, scannable layout.",
+      "Researched and wrote every section, link, and checklist myself.",
+    ],
+    links: ["https://northeastern-guide.vercel.app/#top"],
+    outcome:
+      "Published a living campus guide that lowers the activation energy for navigating Northeastern—resources, food, study spots, co-op, and senior advice in one place.",
+  },
+  {
+    slug: "digitizing-the-archive",
+    title: "Digitizing the Archive",
+    subtitle: "Digital Humanities Capstone",
+    tags: ["Digital Humanities", "Literature", "English", "Web Design"],
+    image: digitizingArchiveImg,
+    role: "Researcher, Writer & Builder",
+    timeline: "Spring 2026",
+    partner: "ENGL 4710 Capstone · Northeastern University",
+    team: "Solo project",
+    tools: "Cursor, Next.js, Literary & archival research",
+    overview:
+      "Final capstone for my English degree—a digital project that pairs archival documents with literary texts in an interactive reading room, combining my passions for literature and thoughtful interface design.",
+    responsibilities: [
+      "Framed the scholarly argument and curated paired archive and literary materials.",
+      "Designed and built the reading-room experience on the web.",
+      "Wrote all interpretive and reflective copy for the archive, about, and reflection sections.",
+    ],
+    links: ["https://engl4710capstone.vercel.app"],
+    outcome:
+      "Shipped a capstone site that invites readers to move between material records and literary context without flattening either—clear metadata, humane pacing, and room for close reading.",
   },
 ];
